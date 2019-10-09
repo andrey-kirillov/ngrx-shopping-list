@@ -11,7 +11,6 @@ const initialState: ShoppingItem[] = [
 
 
 export function ShoppingReducer(state: ShoppingItem[] = initialState, action: ShoppingAction) {
-
   switch (action.type) {
     case ShoppingActionTypes.ADD_ITEM :
       return [...state, action.payload];

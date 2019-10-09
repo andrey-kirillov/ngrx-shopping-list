@@ -1,1 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding: 20px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.ml-20 {
+  margin-left: 20px;
+}
+
+
+.hovered {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.red-hovered {
+  &:hover {
+    color: red;
+  }
+}

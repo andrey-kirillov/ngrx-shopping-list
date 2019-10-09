@@ -1,9 +1,11 @@
-<input name="shoppingItemName" [(ngModel)]="newShoppingItem.name"/>
-<button (click)="addItem()">Add Item</button>
+<div class="mb-20">
+  <input name="shoppingItemName" [(ngModel)]="newShoppingItem.name"/>
+  <button class="ml-20" (click)="addItem()">Add Item</button>
+</div>
 
 
-<ul>
-  <li
+<ul style="list-style-type: decimal; list-style-position: inside" >
+  <li class="hovered red-hovered"
     *ngFor="let item of shoppingItems$ | async"
     (click)="deleteItem(item.id)"
   >
