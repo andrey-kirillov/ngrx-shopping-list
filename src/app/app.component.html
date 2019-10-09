@@ -1,8 +1,13 @@
-<input name="shoppingItemName" [(ngModel)]="newShoppingItem.name" />
+<input name="shoppingItemName" [(ngModel)]="newShoppingItem.name"/>
 <button (click)="addItem()">Add Item</button>
 
 
 <ul>
-  <li *ngFor="let item of shoppingItems$ | async">{{item.name}}</li>
+  <li
+    *ngFor="let item of shoppingItems$ | async"
+    (click)="deleteItem(item.id)"
+  >
+    {{item.name}}
+  </li>
 </ul>
 
