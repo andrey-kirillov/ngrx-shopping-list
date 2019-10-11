@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AppState} from './store/models/app-state.model';
 
 import {ShoppingItem} from './store/models/shop-item.model';
-import {AddItemAction, DeleteItemAction} from './store/actions/shopping.actions';
+import {AddItemAction, DeleteItemAction, LoadShoppingAction} from './store/actions/shopping.actions';
 
 import {Store} from '@ngrx/store';
 import {Observable} from 'rxjs';
@@ -23,10 +23,11 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.shoppingItems$ = this.store.select(store => store.shopping);
+    this.shoppingItems$ = this.store.select(store => store.shopping.list);
+    this.store.dispatch(new LoadShoppingAction());
   }
 
-  addItem() {
+  addItem(): void {
     if (!this.newShoppingItem.name || !this.newShoppingItem.name.trim().length) {
       return;
     }
@@ -36,7 +37,7 @@ export class AppComponent implements OnInit {
     this.newShoppingItem = {id: '', name: ''};
   }
 
-  deleteItem(id: string) {
+  deleteItem(id: string): void {
     this.store.dispatch(new DeleteItemAction(id));
   }
 }
